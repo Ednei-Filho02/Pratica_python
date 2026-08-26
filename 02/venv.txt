@@ -1,0 +1,18 @@
+'''
+Venv - Ambiente Virtual é uma ferramenta que permite criar um ambiente isolado para o seu projeto Python. 
+Ele cria uma cópia independente do interpretador Python e das bibliotecas necessárias, permitindo que você 
+trabalhe em diferentes projetos com diferentes dependências sem conflitos.
+
+para criar um ambiente virtual, você pode usar o seguinte comando no terminal ou prompt de comando:
+python -m venv nome_do_ambiente
+
+para sair do ambiente virtual, você pode usar o seguinte comando no terminal ou prompt de comando:
+deactivate
+
+e para ativar o ambiente virtual, você pode usar o seguinte comando no terminal ou prompt de comando:
+No Windows:
+nome_do_ambiente\Scripts\activate   
+
+e para deletar o ambiente virtual, você pode simplesmente excluir a pasta do ambiente virtual ou usar o seguinte comando no terminal ou prompt de comando:
+rm -rf nome_do_ambiente
+'''

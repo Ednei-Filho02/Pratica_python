@@ -1,0 +1,10 @@
+'''
+Arquivo de requisitos para o projeto.
+Nesse arquivo, você pode listar todas as dependências do seu projeto, especificando os pacotes e suas versões necessárias para que o projeto funcione corretamente.
+Ao instalar as dependências usando o pip, você pode usar o comando:
+pip install -r requirements.txt
+
+Pode ser criado com base no projeto, com o comando:
+pip freeze > requirements.txt
+'''
+
