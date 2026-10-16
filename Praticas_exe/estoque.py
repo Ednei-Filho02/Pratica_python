@@ -15,8 +15,33 @@ produtos = [
 def adicionar_produto():
     while True:
         nome_produto = str(input("Digite o nome do produto: "))
-        valor_produto = float(input(f"Digite o valor de {nome_produto}: ").replace(',', '.'))
-        quantidade_produto = int(input(f"Digite a quantidade de {nome_produto} no estoque: "))
+        while True:
+            try:
+                valor_produto = float(
+                    input(f"Digite o valor de {nome_produto}: ").replace(',', '.')
+                )
+
+                if valor_produto <= 0:
+                    raise ValueError
+
+                break
+
+            except ValueError:
+                print("Digite um preço válido, maior que zero.")
+        while True:
+            try:        
+                quantidade_produto = int(
+                    input(f"Digite a quantidade de {nome_produto} no estoque: ")
+                )
+                
+                if quantidade_produto < 0:
+                    raise ValueError
+                
+                break
+            
+            except ValueError:
+                print("Digite um numero maior que zero.")
+                
         produtos.append({
                 'nome': nome_produto,
                 'valor': valor_produto,
@@ -29,7 +54,7 @@ def adicionar_produto():
         if controle.lower() != 's':
             break
 
-def listar_produtos(produtos):
+def listar_produtos():
     for i, produto in enumerate(produtos, start=1):
         print(
             f"{i}. {produto['nome']} | "
@@ -54,12 +79,8 @@ def estoque_produto():
 
 
 def estoque_geral():
-    quantidade_total = 0
-    valor_total = 0
-
-    for produto in produtos:
-        quantidade_total += produto['quantidade']
-        valor_total += produto['valor'] * produto['quantidade']
+    quantidade_total = sum(p['quantidade'] for p in produtos)
+    valor_total = sum(p['valor'] * p['quantidade'] for p in produtos)
 
     print("\n=== ESTOQUE GERAL ===")
     print(f"Quantidade total de itens: {quantidade_total}")
@@ -81,7 +102,7 @@ while True:
 
         case "2":
             print("\n=== Produtos cadastrados ===")
-            listar_produtos(produtos)
+            listar_produtos()
 
         case "3":
             estoque_produto()
